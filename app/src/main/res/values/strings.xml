@@ -3,4 +3,18 @@
     <string name="button_cache">Cache Video</string>
     <string name="button_play">Play Video</string>
     <string name="button_clear">Clear Cache</string>
+    <string name="label_cache_method">Cache Method</string>
+    <string name="label_video_url">Video Url</string>
+
+    <string name="video_cached">Video cached!</string>
+    <string name="error_cache">Error caching video</string>
+    <string name="start_cache">Video is being cached</string>
+
+    <string name="video_url1">http://media.clarify.io/video/presentations/ShawnAchor-TEDxBloomington-The-Happy-Secret-to-Better-Work.mp4</string>
+
+    <string-array name="cache_methods">
+        <item>DiskLruCache</item>
+        <item>VideoCache</item>
+        <item>SaveInMemory</item>
+    </string-array>
 </resources>
