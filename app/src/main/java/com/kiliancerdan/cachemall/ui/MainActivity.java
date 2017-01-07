@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -27,10 +26,8 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.container) ViewGroup container;
     @BindView(R.id.cache_methods) Spinner cacheMethods;
     @BindView(R.id.urlVideo) TextView urlVideo;
-    @BindView(R.id.cache) Button cacheVideo;
     @BindView(R.id.play) Button playVideo;
     @BindView(R.id.video) VideoView video;
     @BindView(R.id.chronometer) Chronometer chrono;
@@ -118,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
         String url;
 
-        public CacheAsyncTask(String url) {
+        CacheAsyncTask(String url) {
             this.url = url;
         }
 

@@ -29,11 +29,11 @@ public class DiskLruCacheMethod extends CacheMethod {
 
     @Override
     public void setCacheDirectory(File cacheDirectory) {
-        final int A_HUNDRED_MB = 1024 * 1024 * 100;
-        final int VERSION = 1;
-        final int ONE_FILE = 1;
+        final int hundredMB = 1024 * 1024 * 100;
+        final int version = 1;
+        final int oneFile = 1;
         try {
-            cache = DiskLruCache.open(cacheDirectory, VERSION, ONE_FILE, A_HUNDRED_MB);
+            cache = DiskLruCache.open(cacheDirectory, version, oneFile, hundredMB);
         } catch (IOException e) {
             Log.d(LOG_CACHE, String.format("Failed while opening the cache: %s", e.getMessage()));
         }
@@ -69,14 +69,14 @@ public class DiskLruCacheMethod extends CacheMethod {
 
     @Override
     public String getVideoPath() {
-        final String NAME_TEMPORAL_FILE = "TempFile.tpm";
+        final String nameTemporalFile = "TempFile.tpm";
         InputStream inputStream = null;
         String path = "";
         try {
             DiskLruCache.Snapshot snapshot = cache.get(KEY);
             if (snapshot != null) {
                 inputStream = snapshot.getInputStream(POSITION);
-                path = cache.getDirectory().getPath().concat(NAME_TEMPORAL_FILE);
+                path = cache.getDirectory().getPath().concat(nameTemporalFile);
                 StreamUtils.convertInputStreamToFile(inputStream, path);
                 inputStream.close();
             }

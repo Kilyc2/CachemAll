@@ -8,10 +8,6 @@ public class Proxy {
     private HttpProxyCacheServer httpProxyCacheServer;
     private static Proxy ourInstance;
 
-    public static Proxy getInstance() {
-        return ourInstance;
-    }
-
     private Proxy(Context context) {
         httpProxyCacheServer = new HttpProxyCacheServer.Builder(context)
                 .cacheDirectory(context.getCacheDir())
@@ -19,11 +15,16 @@ public class Proxy {
                 .build();
     }
 
+    public static Proxy getInstance() {
+        return ourInstance;
+    }
+
+
     public HttpProxyCacheServer getHttpProxyCacheServer() {
         return httpProxyCacheServer;
     }
 
-    public static void initialize(Context context) {
+    static void initialize(Context context) {
         ourInstance = new Proxy(context);
     }
 }
